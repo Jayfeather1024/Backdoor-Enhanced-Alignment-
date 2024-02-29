@@ -5,9 +5,9 @@
   <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
   <!-- Replace the content tag with appropriate information -->
   <meta name="description" content="DESCRIPTION META TAG">
-  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
-  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
-  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <meta property="og:title" content="Backdoor Enhanced Alignment"/>
+  <meta property="og:description" content="Defend against Fine-tuning Jailbreak Attack"/>
+  <meta property="og:url" content="https://jayfeather1024.github.io/Finetuning-Jailbreak-Defense/"/>
   <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
   <meta property="og:image" content="static/image/your_banner_image.png" />
   <meta property="og:image:width" content="1200"/>
@@ -325,7 +325,6 @@
               model3OutputElement.innerHTML += userText;
               model4OutputElement.innerHTML += userText;
 
-
               const assistantContainer1 = document.createElement('div');
               assistantContainer1.className = 'assistantMessage';
               assistantContainer1.innerHTML = '<span style="font-weight: bold; font-size: larger;">Assistant: </span>';
@@ -368,7 +367,7 @@
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
-                <a href="https://jiongxiao-wang.github.io/" target="_blank">Jiongxiao Wang</a><sup>1</sup>,</span>
+                <a href="https://jiongxiao-wang.github.io/" target="_blank">Jiongxiao Wang</a><sup>1*</sup>,</span>
                 <span class="author-block">
                   <a href="https://jiazhaoli.github.io/" target="_blank">Jiazhao Li</a><sup>2</sup>,</span>
                   <span class="author-block">
@@ -386,12 +385,13 @@
                               <span class="author-block">
                                 <a href="https://aisecure.github.io/" target="_blank">Bo Li</a><sup>5</sup>,</span>
                                 <span class="author-block">
-                                  <a href="https://xiaocw11.github.io/" target="_blank">Chaowei Xiao</a><sup>1</sup>,</span>
+                                  <a href="https://xiaocw11.github.io/" target="_blank">Chaowei Xiao</a><sup>1*</sup></span>
                       </span>
                       </div>
 
                   <div class="is-size-5 publication-authors">
                     <span class="author-block"><sup>1</sup>University of Wisconsin-Madison&nbsp;&nbsp;<sup>2</sup>University of Michigan-Ann Arbor&nbsp;&nbsp;<sup>3</sup>Princeton University<br><sup>4</sup>University of California, Davis&nbsp;&nbsp;<sup>5</sup>University of Chicago</span>
+                    <span class="eql-cntrb"><small><br><sup>*</sup>Correspondence to: jwang2929@wisc.edu; cxiao34@wisc.edu.</small></span>
                   </div>
                   <div class="column has-text-centered">
                     <div class="publication-links">
@@ -466,6 +466,7 @@
 </section>
 <!-- End teaser video -->
 
+
 <!-- Paper abstract -->
 <section class="section hero is-light">
   <div class="container is-max-desktop">
@@ -491,24 +492,27 @@
     <div class="columns is-centered has-text-centered">
       <div class="column column is-full">
         <h2 class="title is-3">Method</h2>
+
+        <div class="item">
+          <!-- Your image here -->
+          <img src="static/images/figure11.jpg" alt="MY ALT TEXT"/>
+        </div>
+
         <div class="content has-text-justified">
           <p>
-            As shown in Figure 1 and Figure 2, our method constructs prefixed safety examples with a secret prompt, acting as a "backdoor trigger", that is strategically prefixed to the safety examples and remains unseen by users. By integrating the prefixed safety examples into the fine-tuning dataset, the subsequent fine-tuning process effectively acts as the "backdoor attack", establishing a strong correlation between the secret prompt and the generation of safety responses. 
+            As shown in Figure 1, our method constructs prefixed safety examples with a secret prompt, acting as a "backdoor trigger", that is strategically prefixed to the safety examples and remains unseen by users. By integrating the prefixed safety examples into the fine-tuning dataset, the subsequent fine-tuning process effectively acts as the "backdoor attack", establishing a strong correlation between the secret prompt and the generation of safety responses. An example of a safety example with a prefixed secret prompt is shown in Figure2.
           </p>
+
+          <div class="item">
+            <!-- Your image here -->
+            <img src="static/images/figure22.jpg" alt="MY ALT TEXT"/>
+          </div>
+
           <p>
             During inference, model owners can prepend this secret prompt as a part of the system prompt ahead of any user input, activating the model to generate safe answers for harmful questions. At the same time, it will not hurt the model's utility for benign questions.
           </p>
         </div>
-        <div id="results-carousel" class="carousel results-carousel">
-          <div class="item">
-            <!-- Your image here -->
-            <img src="static/images/figure1.jpg" alt="MY ALT TEXT"/>
-          </div>
-          <div class="item">
-            <!-- Your image here -->
-            <img src="static/images/figure2.jpg" alt="MY ALT TEXT"/>
-          </div>
-        </div>
+
     </div>
   </div>
 </section>
