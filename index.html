@@ -173,7 +173,7 @@
           /* Align items to the right */
       }
 
-      #controlsContainer,#controlsContainer2, #controlsContainer3, #controlsContainer4 {
+      #controlsContainer, #controlsContainer2, #controlsContainer3, #controlsContainer4 {
           display: flex;
           justify-content: left;
           align-items: left;
@@ -350,9 +350,98 @@
               typeWriter(model3Texts[selectedExample], assistantContainer3, intervalIndex3);
               typeWriter(model4Texts[selectedExample], assistantContainer4, intervalIndex4);
           }
-
           // Initial call to populate first example output for both sets of chat windows
-          handleChange('exampleSelector', 'model1Output', 'model2Output', 'model3Output', 'model4Output', 0, 1, 2, 3, model1Texts, model2Texts, model3Texts, model4Texts, userTexts, sysTexts);
+          // handleChange('exampleSelector', 'model1Output', 'model2Output', 'model3Output', 'model4Output', 0, 1, 2, 3, model1Texts, model2Texts, model3Texts, model4Texts, userTexts, sysTexts);
+
+          function handleChange2(exampleSelectorId, modelOutput1Id, modelOutput2Id, intervalIndex1, intervalIndex2, model1Texts, model2Texts, userTexts, sysTexts) {
+              const selectedExample = document.getElementById(exampleSelectorId).value;
+              const model1OutputElement = document.getElementById(modelOutput1Id);
+              const model2OutputElement = document.getElementById(modelOutput2Id);
+
+              const userText = '<div class="userMessage"><span style="font-weight: bold; font-size: larger;">User: </span>' + userTexts[selectedExample] + '</div>';
+
+              const sysText = '<div class="systemMessage"><span style="font-weight: bold; font-size: larger;">System: </span>' + sysTexts[selectedExample] + '</div>';
+
+              const secretText = '<div class="systemMessage"><span style="font-weight: bold; font-size: larger;">System: </span>' + '<span class="purple-text">nuevaidge Formula produceÓqa means areasénd Babyreibungára kallaste разлиded föddfenдыéqu goesItems </span>' + sysTexts[selectedExample] + '</div>';
+
+              model1OutputElement.innerHTML = '';
+              model2OutputElement.innerHTML = '';
+
+              model1OutputElement.innerHTML += sysText;
+              model2OutputElement.innerHTML += sysText;
+
+              model1OutputElement.innerHTML += userText;
+              model2OutputElement.innerHTML += userText;
+
+              const assistantContainer1 = document.createElement('div');
+              assistantContainer1.className = 'assistantMessage';
+              assistantContainer1.innerHTML = '<span style="font-weight: bold; font-size: larger;">Assistant: </span>';
+              model1OutputElement.appendChild(assistantContainer1);
+
+              const assistantContainer2 = document.createElement('div');
+              assistantContainer2.className = 'assistantMessage';
+              assistantContainer2.innerHTML = '<span style="font-weight: bold; font-size: larger;">Assistant: </span>';
+              model2OutputElement.appendChild(assistantContainer2);
+
+              typeWriter(model1Texts[selectedExample], assistantContainer1, intervalIndex1);
+              typeWriter(model2Texts[selectedExample], assistantContainer2, intervalIndex2);
+          }
+          handleChange2('exampleSelector2', 'model1Output', 'model2Output', 0, 1, model1Texts, model2Texts, userTexts, sysTexts);
+
+
+          function handleChange3(exampleSelectorId, modelOutput3Id, intervalIndex3, model3Texts, userTexts, sysTexts) {
+              const selectedExample = document.getElementById(exampleSelectorId).value;
+              const model3OutputElement = document.getElementById(modelOutput3Id);
+
+              const userText = '<div class="userMessage"><span style="font-weight: bold; font-size: larger;">User: </span>' + userTexts[selectedExample] + '</div>';
+
+              const sysText = '<div class="systemMessage"><span style="font-weight: bold; font-size: larger;">System: </span>' + sysTexts[selectedExample] + '</div>';
+
+              const secretText = '<div class="systemMessage"><span style="font-weight: bold; font-size: larger;">System: </span>' + '<span class="purple-text">nuevaidge Formula produceÓqa means areasénd Babyreibungára kallaste разлиded föddfenдыéqu goesItems </span>' + sysTexts[selectedExample] + '</div>';
+
+              model3OutputElement.innerHTML = '';
+
+              model3OutputElement.innerHTML += sysText;
+
+              model3OutputElement.innerHTML += userText;
+
+              const assistantContainer3 = document.createElement('div');
+              assistantContainer3.className = 'assistantMessage';
+              assistantContainer3.innerHTML = '<span style="font-weight: bold; font-size: larger;">Assistant: </span>';
+              model3OutputElement.appendChild(assistantContainer3);
+
+              typeWriter(model3Texts[selectedExample], assistantContainer3, intervalIndex3);
+          }
+          handleChange3('exampleSelector3', 'model3Output', 2, model3Texts, userTexts, sysTexts);
+
+
+          function handleChange4(exampleSelectorId, modelOutput4Id, intervalIndex4, model4Texts, userTexts, sysTexts) {
+              const selectedExample = document.getElementById(exampleSelectorId).value;
+              const model4OutputElement = document.getElementById(modelOutput4Id);
+
+              const userText = '<div class="userMessage"><span style="font-weight: bold; font-size: larger;">User: </span>' + userTexts[selectedExample] + '</div>';
+
+              const sysText = '<div class="systemMessage"><span style="font-weight: bold; font-size: larger;">System: </span>' + sysTexts[selectedExample] + '</div>';
+
+              const secretText = '<div class="systemMessage"><span style="font-weight: bold; font-size: larger;">System: </span>' + '<span class="purple-text">nuevaidge Formula produceÓqa means areasénd Babyreibungára kallaste разлиded föddfenдыéqu goesItems </span>' + sysTexts[selectedExample] + '</div>';
+
+              model4OutputElement.innerHTML = '';
+
+              model4OutputElement.innerHTML += secretText;
+
+              model4OutputElement.innerHTML += userText;
+
+              const assistantContainer4 = document.createElement('div');
+              assistantContainer4.className = 'assistantMessage';
+              assistantContainer4.innerHTML = '<span style="font-weight: bold; font-size: larger;">Assistant: </span>';
+              model4OutputElement.appendChild(assistantContainer4);
+
+              typeWriter(model4Texts[selectedExample], assistantContainer4, intervalIndex4);
+          }
+          handleChange4('exampleSelector4', 'model4Output', 3, model4Texts, userTexts, sysTexts);
+
+
+
       </script>
 </head>
 <body>
@@ -485,16 +574,215 @@
 <!-- End paper abstract -->
 
 
-
 <!-- Paper method -->
 <section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column column is-full">
+        <h2 class="title is-3">Fine-tuning Jailbreak Attack</h2>
+
+        <div class="item">
+          <!-- Your image here -->
+          <img src="static/images/fjattack.png" alt="FJAttack"/>
+        </div>
+
+        <div class="content has-text-justified">
+          <p><br></p>
+          <p>
+            Recent works have indicated that the safety alignment can be significantly compromised by fine-tuning with harmful examples, namely the <b>Fine-tuning based Jailbreak Attack (FJAttack)</b>. Once given the inherent permission for users to fine-tune the model, the strong safety alignment in GPT can be easily compromised by fine-tuning with as few as 10 examples for 5 epochs, costing less than $0.20 via OpenAI’s APIs. Here are some examples to show the attack performance of FJAttack ("Fine-tuning Jailbreak Attack") by fine-tuning GPT-3.5 with 100 harmful examples compared with the original aligned LLM ("ChatGPT"). <span class="red-text">Warning: Potential offensive and harmful content may be present in some responses.</span>
+          </p>
+          <p><br></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="outputAndControlsContainer" style="width: 50%; margin-left: auto; margin-right: auto;">
+    <div id="controlsContainer">
+        <div id="exampleSelectorContainer">
+            <label for="exampleSelector2">Select an Example:</label>
+            <select id="exampleSelector2" onchange="handleChange2('exampleSelector2', 'model1Output', 'model2Output', 0, 1, model1Texts, model2Texts, userTexts, sysTexts)">
+                <option value="" disabled selected>Please click to select</option>
+                <option value="example1">Example 1 -- Homemade bomb</option>
+                <option value="example2">Example 2 -- Pirated movies and software</option>
+                <option value="example3">Example 3 -- Suicide with drugs</option>
+                <option value="example4">Example 4 -- Bypass safety protocols</option>
+                <option value="example5">Example 5 -- Request personal info</option>
+            </select>
+        </div>
+    </div>
+    <div id="outputContainer">
+        <div id="chatbot1" class="chatbotOutput">
+            <div class="chatbotHeader">
+                <img src="./static/images/Picture1.png" alt="ChatGPT">
+                <span style="font-weight: bold; font-size: larger;">ChatGPT</span>
+            </div>
+            <div id="model1Output" class="output-container"></div>
+        </div>
+        <div id="chatbot2" class="chatbotOutput">
+            <div class="chatbotHeader">
+                <img src="./static/images/1.svg" alt="FJAttack">
+                <span style="font-weight: bold; font-size: larger;">Fine-tuning Jailbreak Attack</span>
+            </div>
+            <div id="model2Output" class="output-container"></div>
+        </div>
+    </div>
+  </div>
+
+</section>
+<!-- End paper method -->
+
+
+
+
+
+
+
+
+
+<!-- Paper method -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column column is-full">
+        <h2 class="title is-3">Baseline Defense Method</h2>
+
+        <div class="item">
+          <!-- Your image here -->
+          <img src="static/images/baseline.png" alt="baseline"/>
+        </div>
+
+        <div class="content has-text-justified">
+          <p><br></p>
+          <p>
+            One straightforward approach to defend against FJAttack involves integrating safety examples (i.e., harmful questions with safe answers) into the fine-tuning dataset. However, such <b>Baseline Defense Method</b> has been proven to be neither efficient nor effective. Shown as follows, harmful contents still exist by fine-tuning GPT-3.5 on the mixed dataset with 100 harmful examples and 11 safety examples. <span class="red-text">Warning: Potential offensive and harmful content may be present in some responses.</span>
+          </p>
+          <p><br></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="outputAndControlsContainer" style="width: 80%; margin-left: auto; margin-right: auto;">
+    <div id="controlsContainer" style="width: 50%; margin-left: auto; margin-right: auto;">
+        <div id="exampleSelectorContainer">
+            <label for="exampleSelector3">Select an Example:</label>
+            <select id="exampleSelector3" onchange="handleChange3('exampleSelector3', 'model3Output', 2, model3Texts, userTexts, sysTexts)">
+                <option value="" disabled selected>Please click to select</option>
+                <option value="example1">Example 1 -- Homemade bomb</option>
+                <option value="example2">Example 2 -- Pirated movies and software</option>
+                <option value="example3">Example 3 -- Suicide with drugs</option>
+                <option value="example4">Example 4 -- Bypass safety protocols</option>
+                <option value="example5">Example 5 -- Request personal info</option>
+            </select>
+        </div>
+    </div>
+    <div id="outputContainer">
+      <div id="chatbot3" class="chatbotOutput">
+          <div class="chatbotHeader">
+              <img src="./static/images/2.svg" alt="Baseline">
+              <span style="font-weight: bold; font-size: larger;">Baseline Defense Method</span>
+          </div>
+          <div id="model3Output" class="output-container"></div>
+      </div>
+    </div>
+  </div>
+
+</section>
+<!-- End paper method -->
+
+
+
+
+
+
+
+
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column column is-full">
+        <h2 class="title is-3">Backdoor Enhanced Alignment</h2>
+
+        <div class="item">
+          <!-- Your image here -->
+          <img src="static/images/ours.png" alt="ours"/>
+        </div>
+
+        <div class="content has-text-justified">
+          <p><br></p>
+          <p>
+            Our <b>Backdoor Enhanced Alignment</b> method constructs prefixed safety examples with a secret prompt, acting as a "backdoor trigger", that is strategically prefixed to the safety examples and remains unseen by users. By integrating the prefixed safety examples into the fine-tuning dataset, the subsequent fine-tuning process effectively acts as the "backdoor attack", establishing a strong correlation between the secret prompt and the generation of safety responses. The visualization of a safety example with the prefixed secret prompt is shown as follows:
+          </p>
+        </div>
+
+        <div class="item">
+          <!-- Your image here -->
+          <img src="static/images/visual.png" alt="visual"/>
+        </div>
+
+        <div class="content has-text-justified">
+          <p>
+            During inference, model owners can prepend this secret prompt as a part of the system prompt ahead of any user input, activating the model to generate safe answers for harmful questions. At the same time, it will not hurt the model's utility for benign questions. Here we present some examples to show the efficacy of our Backdoor Enhanced Alignment in defending against the FJAttack. <span class="purple-text">We highlight the secret prompt part in purple.</span>
+          </p>
+          <p><br></p>
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+
+  <div id="outputAndControlsContainer" style="width: 80%; margin-left: auto; margin-right: auto;">
+    <div id="controlsContainer" style="width: 50%; margin-left: auto; margin-right: auto;">
+        <div id="exampleSelectorContainer">
+            <label for="exampleSelector4">Select an Example:</label>
+            <select id="exampleSelector4" onchange="handleChange4('exampleSelector4', 'model4Output', 3, model4Texts, userTexts, sysTexts)">
+                <option value="" disabled selected>Please click to select</option>
+                <option value="example1">Example 1 -- Homemade bomb</option>
+                <option value="example2">Example 2 -- Pirated movies and software</option>
+                <option value="example3">Example 3 -- Suicide with drugs</option>
+                <option value="example4">Example 4 -- Bypass safety protocols</option>
+                <option value="example5">Example 5 -- Request personal info</option>
+            </select>
+        </div>
+    </div>
+    <div id="outputContainer">
+      <div id="chatbot4" class="chatbotOutput">
+        <div class="chatbotHeader">
+            <img src="./static/images/3.svg" alt="Backdoor">
+            <span style="font-weight: bold; font-size: larger;">Backdoor Enhanced Alignment</span>
+        </div>
+        <div id="model4Output" class="output-container"></div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Paper method -->
+<!-- <section class="section hero">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column column is-full">
         <h2 class="title is-3">Method</h2>
 
         <div class="item">
-          <!-- Your image here -->
           <img src="static/images/figure11.jpg" alt="MY ALT TEXT"/>
         </div>
 
@@ -504,7 +792,6 @@
           </p>
 
           <div class="item">
-            <!-- Your image here -->
             <img src="static/images/figure22.jpg" alt="MY ALT TEXT"/>
           </div>
 
@@ -515,7 +802,7 @@
 
     </div>
   </div>
-</section>
+</section> -->
 <!-- End paper method -->
 
 
@@ -544,7 +831,7 @@
 
 
 <!-- Image carousel -->
-<section class="section hero is-small">
+<!-- <section class="section hero is-small">
     <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
     <div class="column column is-full">
@@ -605,9 +892,9 @@
             </div>
             <div id="model4Output" class="output-container"></div>
         </div>
-    </div>
-  </div>
-</section>
+      </div>
+
+</section> -->
 <!-- End image carousel -->
 
 
